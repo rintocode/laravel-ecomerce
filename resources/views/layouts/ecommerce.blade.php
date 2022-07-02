@@ -85,7 +85,7 @@
 		<div class="top_menu row m0">
 			<div class="container-fluid">
 				<div class="float-left">
-					<p>Call Us: 0852 5070 8309</p>
+					<p>Call Us: 087884505288</p>
 				</div>
 				<div class="float-right">
 					<ul class="right_side">

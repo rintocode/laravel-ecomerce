@@ -63,7 +63,7 @@
                                             <label for="">Transfer Ke</label>
                                             <select name="transfer_to" class="form-control" required>
                                                 <option value="">Pilih</option>
-                                                <option value="Mandiri - 2345678">Mandiri: 1110017216066 a.n Rinto</option>
+                                                <option value="Mandiri - 2345678">Mandiri: a.n Rinto</option>
                                             </select>
                                             <p class="text-danger">{{ $errors->first('transfer_to') }}</p>
                                         </div>

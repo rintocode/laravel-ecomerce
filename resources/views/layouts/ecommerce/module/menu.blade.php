@@ -6,7 +6,7 @@
         <a class="nav-link" href="{{ route('front.product') }}">Produk</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="https://api.whatsapp.com/send?phone=6281382920681&amp;text=Halo%20gan,%20Saya%20butuh%20bantuan%20terkait%20">Bantuan</a>
+        <a class="nav-link" href="https://api.whatsapp.com/send?phone=6287884505288&amp;text=Halo%20gan,%20Saya%20butuh%20bantuan%20terkait%20">Bantuan</a>
     </li>
     <!--<li class="nav-item submenu dropdown">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kategori</a>
