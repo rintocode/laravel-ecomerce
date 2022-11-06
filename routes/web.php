@@ -37,15 +37,16 @@ Route::match(['get', 'post'], '/register', function () {
 
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('category', 'CategoryController')->except(['create', 'show']);
+    Route::resource('product', 'ProductController')->except(['show']);
+    Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
+    Route::post('/product/bulk', 'ProductController@massUpload')->name('product.saveBulk');
+
     Route::get('/analytic', function () {
 
         $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
         return view('analytic', ['analyticsData' => $analyticsData]);
     });
-    Route::resource('category', 'CategoryController')->except(['create', 'show']);
-    Route::resource('product', 'ProductController')->except(['show']);
-    Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
-    Route::post('/product/bulk', 'ProductController@massUpload')->name('product.saveBulk');
 
     Route::group(['prefix' => 'orders'], function () {
         Route::get('/', 'OrderController@index')->name('orders.index');
