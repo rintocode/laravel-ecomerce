@@ -12,7 +12,7 @@
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-  
+
         <form action="{{ route('login') }}" method="post">
           @csrf
           <div class="input-group mb-3">

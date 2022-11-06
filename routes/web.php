@@ -37,6 +37,11 @@ Route::match(['get', 'post'], '/register', function () {
 
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/analytic', function () {
+
+        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        return view('analytic', ['analyticsData' => $analyticsData]);
+    });
     Route::resource('category', 'CategoryController')->except(['create', 'show']);
     Route::resource('product', 'ProductController')->except(['show']);
     Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
@@ -51,11 +56,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
         Route::post('/return', 'OrderController@approveReturn')->name('orders.approve_return');
         Route::delete('/{id}', 'OrderController@destroy')->name('orders.destroy');
     });
-    Route::get('/analytic', function () {
 
-        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
-        return view('analytic', ['analyticsData' => $analyticsData]);
-    });
 
     Route::group(['prefix' => 'reports'], function() {
         Route::match(['get', 'post'], '/', function () {
