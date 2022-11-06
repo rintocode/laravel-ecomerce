@@ -1,5 +1,9 @@
 <?php
 
+
+
+use Illuminate\Support\Facades\Route;
+use Spatie\Analytics\Period;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +14,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/', 'Ecommerce\FrontController@index')->name('front.index');
 
@@ -32,11 +37,9 @@ Route::match(['get', 'post'], '/register', function () {
 
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
-
     Route::resource('category', 'CategoryController')->except(['create', 'show']);
-    
     Route::resource('product', 'ProductController')->except(['show']);
-    Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk'); 
+    Route::get('/product/bulk', 'ProductController@massUploadForm')->name('product.bulk');
     Route::post('/product/bulk', 'ProductController@massUpload')->name('product.saveBulk');
 
     Route::group(['prefix' => 'orders'], function () {
@@ -48,15 +51,23 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function() {
         Route::post('/return', 'OrderController@approveReturn')->name('orders.approve_return');
         Route::delete('/{id}', 'OrderController@destroy')->name('orders.destroy');
     });
+    Route::get('/analytic', function () {
+
+        $analyticsData = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        return view('analytic', ['analyticsData' => $analyticsData]);
+    });
 
     Route::group(['prefix' => 'reports'], function() {
         Route::match(['get', 'post'], '/', function () {
             return redirect('administrator/reports/order');
+
         });
         Route::get('/order', 'OrderController@orderReport')->name('report.order');
         Route::get('/reportorder/{daterange}', 'OrderController@orderReportPdf')->name('report.order_pdf');
         Route::get('/return', 'OrderController@returnReport')->name('report.return');
         Route::get('/reportreturn/{daterange}', 'OrderController@returnReportPdf')->name('report.return_pdf');
+
+
     });
 });
 
@@ -84,6 +95,6 @@ Route::group(['prefix' => 'member', 'namespace' => 'Ecommerce'], function() {
         Route::get('wishlists', 'WishlistController@index')->name('customer.wishlist');
         Route::post('wishlists', 'WishlistController@saveWishlist')->name('customer.save_wishlist');
         Route::delete('wishlists/{id}', 'WishlistController@deleteWishlist')->name('customer.deleteWishlist');
-        Route::get('logout', 'LoginController@logout')->name('customer.logout'); 
+        Route::get('logout', 'LoginController@logout')->name('customer.logout');
     });
 });

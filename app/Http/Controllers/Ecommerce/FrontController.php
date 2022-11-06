@@ -30,7 +30,7 @@ class FrontController extends Controller
             $products = $products->orderBy('price', request()->price);
         }
 
-        $products = $products->paginate(12);        
+        $products = $products->paginate(12);
         return view('ecommerce.product', compact('products'));
     }
 
