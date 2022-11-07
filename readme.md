@@ -32,7 +32,10 @@ Setting smtp email yang digunakan untuk mengirim password registrasi user dan re
 <br>MAIL_PASSWORD=password email kamu
 <br>MAIL_ENCRYPTION=tls
 
-Setting TELEGRAM_KEY yang berguna untuk memberitahu admin jika ada return order. Cara memperoleh TELEGRAM_KEY dengan mencari username BotFather kemudian klik start. Ketik /newbot dan ikuti instruksi dari Telegram yang meminta data terkait nama bot dan username yang akan dibuat. Setelah semuanya selesai, Telegram akan mengirimkan token untuk mengakses HTTP API
+Setting TELEGRAM_KEY yang berguna untuk memberitahu admin jika ada return order. 
+Cara memperoleh TELEGRAM_KEY dengan mencari username BotFather kemudian klik start. 
+Ketik /newbot dan ikuti instruksi dari Telegram yang meminta data terkait nama bot dan username yang akan dibuat. 
+Setelah semuanya selesai, Telegram akan mengirimkan token untuk mengakses HTTP API
 <br>TELEGRAM_KEY=5344891203:AAEpwAxWJ86Fo-7zfZjnvwFHxNqcBsRfHTo
 
 Setting RUANGAPI_KEY dengan mendaftar terlebih dahulu di https://ruangapi.com/register:
