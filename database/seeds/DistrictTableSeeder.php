@@ -12,7 +12,8 @@ class DistrictTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("INSERT INTO `districts` (`id`, `province_id`, `city_id`, `name`, `created_at`, `updated_at`) VALUES
+        DB::table('districts')->insert([
+        ("INSERT INTO `districts` (`id`, `province_id`, `city_id`, `name`, `created_at`, `updated_at`) VALUES
         (1, 21, 1, 'Arongan Lambalek', '2019-08-29 13:00:56', '2019-08-29 13:00:56'),
         (2, 21, 1, 'Bubon', '2019-08-29 13:00:56', '2019-08-29 13:00:56'),
         (3, 21, 1, 'Johan Pahlawan', '2019-08-29 13:00:56', '2019-08-29 13:00:56'),
@@ -7006,6 +7007,7 @@ class DistrictTableSeeder extends Seeder
         (6991, 5, 501, 'Pakualaman', '2019-08-29 13:14:52', '2019-08-29 13:14:52'),
         (6992, 5, 501, 'Tegalrejo', '2019-08-29 13:14:52', '2019-08-29 13:14:52'),
         (6993, 5, 501, 'Umbulharjo', '2019-08-29 13:14:52', '2019-08-29 13:14:52'),
-        (6994, 5, 501, 'Wirobrajan', '2019-08-29 13:14:52', '2019-08-29 13:14:52');");
+        (6994, 5, 501, 'Wirobrajan', '2019-08-29 13:14:52', '2019-08-29 13:14:52');")
+        ]);
     }
 }

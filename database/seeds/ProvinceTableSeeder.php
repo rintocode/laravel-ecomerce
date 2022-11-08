@@ -12,7 +12,8 @@ class ProvinceTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::insert("INSERT INTO `provinces` (`id`, `name`, `created_at`, `updated_at`) VALUES
+        DB::table('provinces')->insert([
+        ("INSERT INTO `provinces` (`id`, `name`, `created_at`, `uptdate_at`) VALUES
         (1, 'Bali', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
         (2, 'Bangka Belitung', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
         (3, 'Banten', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
@@ -46,6 +47,7 @@ class ProvinceTableSeeder extends Seeder
         (31, 'Sulawesi Utara', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
         (32, 'Sumatera Barat', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
         (33, 'Sumatera Selatan', '2019-08-29 12:55:52', '2019-08-29 12:55:52'),
-        (34, 'Sumatera Utara', '2019-08-29 12:55:52', '2019-08-29 12:55:52');");
+        (34, 'Sumatera Utara', '2019-08-29 12:55:52', '2019-08-29 12:55:52');")
+        ]);
     }
 }
